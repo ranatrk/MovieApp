@@ -83,7 +83,7 @@ public class MainActivityFragment extends Fragment {
     private void updateMovies(){
         FetchMoviesTask moviesTask = new FetchMoviesTask();
 //        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-//        String preferencePrder = prefs.getString(getString(R.string.pref_default_order);
+//        String preferenceorder = prefs.getString(getString(R.string.pref_default_order);
         moviesTask.execute();
 
     }

@@ -44,6 +44,14 @@ public class MovieDetailActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        switch (id) {
+            case R.id.most_popular:
+                return true;
+            case R.id.top_rated:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
         //noinspection SimplifiableIfStatement
 //        if (id == R.id.action_settings) {
@@ -51,7 +59,6 @@ public class MovieDetailActivity extends AppCompatActivity {
 //            return true;
 //        }
 
-        return super.onOptionsItemSelected(item);
     }
 
 }

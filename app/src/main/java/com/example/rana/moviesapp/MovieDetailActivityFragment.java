@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -71,6 +72,23 @@ public class MovieDetailActivityFragment extends Fragment {
 //        } else {
 //            Log.d(LOG_TAG, "Share Action Provider is null?");
 //        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.most_popular:
+                return true;
+            case R.id.top_rated:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
