@@ -28,7 +28,7 @@ public class MovieDetailActivityFragment extends Fragment {
 //        return inflater.inflate(R.layout.fragment_movie_detail, container, false);
         View rootView = inflater.inflate(R.layout.fragment_movie_detail, container, false);
         Intent intent = getActivity().getIntent();
-        if (intent != null) {
+        if (intent != null && intent.hasExtra("MovieDetails")) {
             String movieString =intent.getStringExtra("MovieDetails");
             MovieDetails movieDetails = new MovieDetails(movieString);
 
@@ -36,16 +36,16 @@ public class MovieDetailActivityFragment extends Fragment {
                     .setText(movieDetails.getOriginal_title());
 
             ((TextView) rootView.findViewById(R.id.movie_year))
-                    .setText(movieDetails.getRelease_date());
+                    .setText(movieDetails.getRelease_date().substring(0,4));
 
             ((TextView) rootView.findViewById(R.id.movie_avg_rating))
-                    .setText(movieDetails.getVote_average()+"");
+                    .setText(movieDetails.getVote_average()+"/10");
 
             ((TextView) rootView.findViewById(R.id.movie_overview))
                     .setText(movieDetails.getOverview());
+
             ImageView imageView = (ImageView)rootView.findViewById(R.id.movie_poster);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(4, 4, 4, 4);
+
             Picasso.with(getActivity()).load("http://image.tmdb.org/t/p/w185/"+movieDetails.getPoster_path()).into(imageView);
         }
 
