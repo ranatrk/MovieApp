@@ -8,7 +8,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -40,6 +43,10 @@ public class MovieDetailActivityFragment extends Fragment {
 
             ((TextView) rootView.findViewById(R.id.movie_overview))
                     .setText(movieDetails.getOverview());
+            ImageView imageView = (ImageView)rootView.findViewById(R.id.movie_poster);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setPadding(4, 4, 4, 4);
+            Picasso.with(getActivity()).load("http://image.tmdb.org/t/p/w185/"+movieDetails.getPoster_path()).into(imageView);
         }
 
         return rootView;
@@ -65,6 +72,8 @@ public class MovieDetailActivityFragment extends Fragment {
 //            Log.d(LOG_TAG, "Share Action Provider is null?");
 //        }
     }
+
+
 
 
 
