@@ -19,6 +19,9 @@ public class MovieDetails implements Serializable{
     private String original_title;
     private double vote_average;
 
+
+    private int movieID;
+
     public MovieDetails(String movieString){
         this.movieString = movieString;
         try {
@@ -28,7 +31,7 @@ public class MovieDetails implements Serializable{
             release_date = movieObject.getString("release_date");
             original_title = movieObject.getString("original_title");
             vote_average = movieObject.getDouble("vote_average");
-
+            movieID = movieObject.getInt("id");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -84,6 +87,15 @@ public class MovieDetails implements Serializable{
 
     public void setMovieString(String movieString) {
         this.movieString = movieString;
+    }
+
+
+    public int getMovieID() {
+        return movieID;
+    }
+
+    public void setMovieID(int movieID) {
+        this.movieID = movieID;
     }
 
 

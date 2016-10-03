@@ -35,13 +35,7 @@ public class MainActivityFragment extends Fragment {
     public MainActivityFragment() {
     }
 
-    public void openMovie(View view) {
-        Intent intent = new Intent(getActivity(),MovieDetailActivity.class);
-//        EditText editText = (EditText) findViewById(R.id.edit_message);
-//        String message = editText.getText().toString();
-//        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,6 +73,23 @@ public class MainActivityFragment extends Fragment {
 
         return rootView;
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//        switch (id) {
+//            case R.id.most_popular:
+//                return true;
+//            case R.id.top_rated:
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//
+//        }
+//    }
 
     private void updateMovies(){
         FetchMoviesTask moviesTask = new FetchMoviesTask();
@@ -148,9 +159,6 @@ public class MainActivityFragment extends Fragment {
 
             String format = "json";
             try {
-                // Construct the URL for the OpenWeatherMap query
-                // Possible parameters are avaiable at OWM's forecast API page, at
-                // http://openweathermap.org/API#forecast
                 final String PopularMovies_BASE_URL = "http://api.themoviedb.org/3/movie/popular?";
 
                 final String APPID_PARAM = "api_key";
@@ -161,7 +169,6 @@ public class MainActivityFragment extends Fragment {
                 Log.v("builtUri",builtUri.toString());
                 URL url = new URL(builtUri.toString());
 
-                // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.connect();
