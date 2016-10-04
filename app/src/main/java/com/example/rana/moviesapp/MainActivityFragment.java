@@ -36,6 +36,7 @@ public class MainActivityFragment extends Fragment {
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,22 +75,7 @@ public class MainActivityFragment extends Fragment {
         return rootView;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//        switch (id) {
-//            case R.id.most_popular:
-//                return true;
-//            case R.id.top_rated:
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }
+
 
     private void updateMovies(){
         FetchMoviesTask moviesTask = new FetchMoviesTask();
